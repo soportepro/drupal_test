@@ -1,0 +1,44 @@
+#logo img {
+  max-width: 350px !important;
+  height: auto !important;
+}
+.title_teaser {
+	color: #000;
+	font-size: 41px;
+	font-weight: bold;
+	line-height: 35px;
+}
+.field-name-field-seccion{
+	display: inline-block;
+	float: left;
+}
+
+.field-name-field-seccion a {
+	color: #005383 !important;
+	font-size: 13px;
+}
+.submitted-by {
+	color: #000;
+	font-size: 11px;
+}
+
+.field-type-text-with-summary {
+	display: inline-block;
+	color: #000;
+	font-size: 15px;
+	line-height: 17px;	
+}
+.title_front {
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 16px;
+}
+.nota_rel .field-item{
+	display: inline-grid;
+	width: 31%;
+	height: auto;
+}
+.nota_rel .submitted-by {
+	display: none;
+}

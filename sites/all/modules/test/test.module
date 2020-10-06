@@ -1,0 +1,13 @@
+<?php
+/**
+ * Implements hook_block_info().
+ */
+function notas_json_block_info() {
+  $blocks['notas_json'] = array(
+    // The name that will appear in the block list.
+    'info' => t('Notas Json'),
+    // Default setting.
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
