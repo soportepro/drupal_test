@@ -1,0 +1,10 @@
+;$Id$
+
+name = Contenido desde json
+description = Modulo que crea un bloque con contenido del sitio
+core = 7.x
+package = Drupal 7 Test
+files[] = json_bloque.module
+
+;dependencies[] = autoload
+;php = 5.2

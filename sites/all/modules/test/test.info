@@ -1,4 +1,4 @@
-name = Test Module
-description = Pull in json and render it as html
-package = JSON
+name = WW JSON Example
+description = Create customized lists and queries from your database.
+package = Web Wash Examples
 core = 7.x

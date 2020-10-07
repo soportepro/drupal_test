@@ -1,0 +1,73 @@
+<?php
+/* json_bloque.module */
+/**
+ * Implements hook_help().
+ */
+function json_bloque_help($path, $arg) {
+  if ($path == 'admin/help#json_bloque') {
+    return t('Modulo que crea un bloque en base contenido en formato json.');
+  }
+}
+/**
+ * Implements hook_block_info().
+ */
+function json_bloque_block_info() {
+  $blocks = array();
+  
+  $blocks['bloque_con_nodos'] = array(
+    'info' => t('Bloque con nodos json.'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  
+  return $blocks;
+}
+/**
+ * Implements hook_block_view().
+
+function json_bloque_block_view($block_name = '') {
+  if ($block_name == 'bloque_con_nodos') {
+    $list = module_list();
+    
+    $theme_args = array('items' => $list, 'type' => 'ol');
+    $content = theme('item_list', $theme_args);
+    
+    $block = array(
+      'subject' => t('Enabled Modules'),
+      'content' => $content,
+    );
+    
+    return $block;
+  }
+}
+*/
+function json_bloque_block_view($block_name = '') {
+  if ($block_name == 'bloque_con_nodos') {
+  	$output  = '<div class="bloqueJson clearfix">';
+    $output .= '<img width="244px" height="auto" src="https://www.mallsofworld.com/drupal/sites/default/files/eluniversal_logo_0.png">';
+    $output .= '<hr>';
+    $url = 'https://www.mallsofworld.com/drupal/json/nodes';
+    $request = drupal_http_request($url);
+    $json_response = drupal_json_decode($request->data);
+    foreach($json_response as $mydata) {
+    	$output.= '<a> <img src="' . print_r($mydata['0']['node']['Image']['src'], TRUE) . '"></a>';
+    	foreach($mydata as $item) {
+        	$output .= '<div class="item">';
+        	$output .= '<a href="https://www.mallsofworld.com/drupal/node/'. print_r($item['node']['Nid'], TRUE) . '"><span class="title">' . print_r($item['node']['title'], TRUE) . '</span></a>';
+            $output .= '<hr>';
+            $output .= '<div>';
+        }
+    }
+    $output .='<a class="unHome" href="https://www.eluniversal.com.mx" target="_blank">WWW.ELUNIVERSAL.COM.MX</a>';
+    $output .='</div>';
+    
+    $block = array(
+      'subject' => t(''),
+      'content' => $output,
+    );
+    
+    return $block;
+  }
+}
+
+
+
